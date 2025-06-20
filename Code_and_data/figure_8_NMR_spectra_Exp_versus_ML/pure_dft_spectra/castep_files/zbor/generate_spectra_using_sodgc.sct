@@ -1,0 +1,60 @@
+#!/bin/bash
+
+inputfile="TEMPERATURES"
+
+echo Doing x125
+cd x125
+#sod_gcstat.sh
+values=$(cat "$inputfile" | tr '\n' ' ')
+line="x $values Infinity"
+echo "$line" > ../tmp
+awk 'NR>1' ave_spectra.dat > tmp2
+cat ../tmp tmp2 > ave_spectra_x125.dat
+
+echo Doing x250
+cd ../x250
+sod_gcstat.sh
+awk 'NR>1' ave_spectra.dat > tmp2
+cat ../tmp tmp2 > ave_spectra_x250.dat
+
+echo Doing x375
+cd ../x375
+sod_gcstat.sh
+awk 'NR>1' ave_spectra.dat > tmp2
+cat ../tmp tmp2 > ave_spectra_x375.dat
+
+echo Doing x500
+cd ../x500
+sod_gcstat.sh
+awk 'NR>1' ave_spectra.dat > tmp2
+cat ../tmp tmp2 > ave_spectra_x500.dat
+
+echo Doing x625
+cd ../x625
+sod_gcstat.sh
+awk 'NR>1' ave_spectra.dat > tmp2 
+cat ../tmp tmp2 > ave_spectra_x625.dat
+
+echo Doing x750
+cd ../x750
+sod_gcstat.sh
+awk 'NR>1' ave_spectra.dat > tmp2
+cat ../tmp tmp2 > ave_spectra_x750.dat
+
+echo Doing x875
+cd ../x875
+sod_gcstat.sh
+awk 'NR>1' ave_spectra.dat > tmp2
+cat ../tmp tmp2 > ave_spectra_x875.dat
+
+echo Doing x999
+cd ../x999
+sod_stat.sh
+awk 'NR>1' ave_spectra.dat > tmp2
+cat ../tmp tmp2 > ave_spectra_x999.dat
+
+cd ..
+
+rm tmp x*/tmp2
+
+cp x*/ave_spectra_*dat ../../../create_figure/.

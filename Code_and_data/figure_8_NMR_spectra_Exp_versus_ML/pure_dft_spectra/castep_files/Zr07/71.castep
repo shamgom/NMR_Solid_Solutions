@@ -1,0 +1,1364 @@
+ +-------------------------------------------------+
+ |                                                 |
+ |      CCC   AA    SSS  TTTTT  EEEEE  PPPP        |
+ |     C     A  A  S       T    E      P   P       |
+ |     C     AAAA   SS     T    EEE    PPPP        |
+ |     C     A  A     S    T    E      P           |
+ |      CCC  A  A  SSS     T    EEEEE  P           |
+ |                                                 |
+ +-------------------------------------------------+
+ |                                                 |
+ | Welcome to Academic Release CASTEP version 16.1 |          
+ | Ab Initio Total Energy Program                  |
+ |                                                 |
+ | Authors:                                        |
+ | M. Segall, M. Probert, C. Pickard, P. Hasnip,   |
+ | S. Clark, K. Refson, J. R. Yates, M. Payne      |
+ |                                                 |
+ | Contributors:                                   |
+ | P. Lindan, P. Haynes, J. White, V. Milman,      |
+ | N. Govind, M. Gibson, P. Tulip, V. Cocula,      |
+ | B. Montanari, D. Quigley, M. Glover,            |
+ | L. Bernasconi, A. Perlov, M. Plummer,           |
+ | E. McNellis, J. Meyer, J. Gale, D. Jochym       |
+ | J. Aarons, B. Walker, R. Gillen, D. Jones       |
+ | T. Green, I. J. Bush, C. J. Armstrong,          |
+ | E. J. Higgins, E. L. Brown, M. S. McFly         |
+ |                                                 |
+ | Copyright (c) 2000 - 2015                       |
+ |                                                 |
+ |     Distributed under the terms of an           |
+ |     Agreement between the United Kingdom        |
+ |     Car-Parrinello (UKCP) Consortium,           |
+ |     Daresbury Laboratory and Accelrys, Inc.     |
+ |                                                 |
+ | Please cite                                     |
+ |                                                 |
+ |     "First principles methods using CASTEP"     |
+ |                                                 |
+ |         Zeitschrift fuer Kristallographie       |
+ |           220(5-6) pp. 567-570 (2005)           |
+ |                                                 |
+ | S. J. Clark, M. D. Segall, C. J. Pickard,       |
+ | P. J. Hasnip, M. J. Probert, K. Refson,         |
+ | M. C. Payne                                     |
+ |                                                 |
+ |       in all publications arising from          |
+ |              your use of CASTEP                 |
+ |                                                 |
+ +-------------------------------------------------+
+ 
+ 
+ Compiled for linux_x86_64_cray-XT on Tue, 22 Mar 2022 15:42:52 +0000
+ from code version b833c1ffcd7d+  Fri, 13 Jun 2014 17:24:31 +0100
+ Compiler: Cray Fortran 11.0.4; Optimisation: intermediate
+ MATHLIBS: LibSci (LAPACK version 3.6.1)
+ FFT Lib : default
+ Fundamental constants values: CODATA 2010
+ 
+ Run started: Tue, 29 Mar 2022 12:58:06 -0100
+ +-------------------------------------------------+
+ |                                                 |
+ |           N   N    M   M    RRRR                |
+ |           NN  N    MM MM    R   R               |
+ |           N N N    M M M    RRRR                |
+ |           N  NN    M   M    R  R                |
+ |           N   N    M   M    R   R               |
+ |                                                 |
+ +-------------------------------------------------+
+ |                                                 |
+ | Welcome to Materials Studio CASTEP-NMR          |
+ |                                                 |
+ | Authors:                                        |
+ | J.R. Yates, C.J. Pickard, F. Mauri              |
+ |                                                 |
+ | Contributors:                                   |
+ | T.F.G. Green, S.A. Joyce                        |
+ |                                                 |
+ | Copyright (c) 2004 - 2015                       |
+ |                                                 |
+ | Please cite the appropriate publications in all |
+ | work arising from your use of CASTEP NMR.       |
+ |                                                 |
+ | For NMR Shielding Tensors cite:                 |
+ |    "All-electron magnetic response with         |
+ |    pseudopotentials: NMR chemical shifts",      |
+ |    C. J. Pickard, F. Mauri;                     |
+ |    Physical Review B63 245101 (2001), and       |
+ |                                                 |
+ |    "Calculation of NMR Chemical Shifts          |
+ |    for extended systems using                   |
+ |    Ultrasoft Pseudopotentials",                 |
+ |    J. R. Yates, C. J. Pickard and F. Mauri      |
+ |    Physical Review B76 024401 (2007)            |
+ |                                                 |
+ | For Electric Field Gradients cite:              |
+ |   "Accurate First Principles Prediction of 17O  |
+ |    NMR Parameters in SiO2: Assignment of the    |
+ |    Zeolite Ferrierite Spectrum"                 |
+ |    M. Profeta, F. Mauri and C. J. Pickard       |
+ |    J. Amer. Chem. Soc. 125 541 (2003)           |
+ |                                                 |
+ | For Spin-Spin (J) Couplings cite:               |
+ |   "A first principles theory of NMR J-coupling  |
+ |   in solid-state systems"                       |
+ |   S.A. Joyce, J.R. Yates, C.J. Pickard, F. Mauri|
+ |   J. Chem. Phys. 127 204107 (2007)              |
+ |                                                 |
+ |   "Relativistic NMR J-coupling with ultrasoft   |
+ |   pseudopotentials and the zeroth-order regular |
+ |   approximation"                                |
+ |   T.F.G. Green and J.R. Yates                   |
+ |   J. Chem. Phys. 140 234106 (2014)              |
+ |                                                 |
+ +-------------------------------------------------+
+ 
+ 
+ Atomic calculation performed for O: 1s2 2s2 2p4
+ 
+ Converged in 44 iterations to an ae energy of -2040.855 eV
+ 
+ 
+ Atomic calculation performed for O: 1s2 2s2 2p4
+ 
+ Exceeded max iterations: converged to 0.000000062 eV
+ 
+   ============================================================                
+   | Pseudopotential Report - Date of generation 29-03-2022   |                
+   ------------------------------------------------------------                
+   | Element: O Ionic charge:  6.00 Level of theory: PBE      |                
+   | Atomic Solver: ZORA (scalar)                             |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            2s              2.000           -0.881        |                
+   |            2p              4.000           -0.332        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -0.881   1.100     qc      0         |                
+   |          2      0    0.250   1.100     qc      0         |                
+   |          3      1   -0.332   1.100     qc      0         |                
+   |          4      1    0.250   1.100     qc      0         |                
+   |         loc     2    0.000   1.100     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 0.769                       |                
+   | Partial core correction Rc = 0.769                       |                
+   ------------------------------------------------------------                
+   | "2|1.1|15|18|20|20:21(qc=7)"                             |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+ 
+ Atomic calculation performed for Zr: 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d2 5s2
+ 
+ Converged in 52 iterations to an ae energy of -97719.888 eV
+ 
+ 
+ Atomic calculation performed for Zr: 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d2 5s2
+ 
+ Exceeded max iterations: converged to 0.000000936 eV
+ 
+ Warning: ion_atom_descreen_psp: negative charge density encountered
+   ============================================================                
+   | Pseudopotential Report - Date of generation 29-03-2022   |                
+   ------------------------------------------------------------                
+   | Element: Zr Ionic charge: 12.00 Level of theory: PBE     |                
+   | Atomic Solver: ZORA (scalar)                             |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            4s              2.000           -2.003        |                
+   |            4p              6.000           -1.193        |                
+   |            5s              2.000           -0.163        |                
+   |            4d              2.000           -0.132        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -2.003   2.105     qc      0         |                
+   |          2      0   -0.163   2.105     qc      0         |                
+   |          3      0    0.250   2.105     qc      0         |                
+   |          4      1   -1.193   2.105     qc      0         |                
+   |          5      1    0.250   2.105     qc      0         |                
+   |          6      2   -0.132   2.105     qc      0         |                
+   |          7      2    0.250   2.105     qc      0         |                
+   |         loc     3    0.000   2.105     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.471                       |                
+   | Partial core correction Rc = 1.471                       |                
+   ------------------------------------------------------------                
+   | "3|2.1|7|8|9|40U:50:41:42"                               |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+ 
+ Atomic calculation performed for Sn:
+ 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d10 5s2 5p2
+ 
+ Converged in 58 iterations to an ae energy of -167539.320 eV
+ 
+ 
+ Atomic calculation performed for Sn:
+ 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d10 5s2 5p2
+ 
+ Exceeded max iterations: converged to -0.000000491 eV
+ 
+   ============================================================                
+   | Pseudopotential Report - Date of generation 29-03-2022   |                
+   ------------------------------------------------------------                
+   | Element: Sn Ionic charge: 14.00 Level of theory: PBE     |                
+   | Atomic Solver: ZORA (scalar)                             |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            4d             10.000           -0.950        |                
+   |            5s              2.000           -0.388        |                
+   |            5p              2.000           -0.136        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -0.388   2.199     qc      0         |                
+   |          2      0    0.250   2.199     qc      0         |                
+   |          3      1   -0.136   2.199     qc      0         |                
+   |          4      1    0.250   2.199     qc      0         |                
+   |          5      2   -0.950   2.199     qc      0         |                
+   |          6      2    0.250   2.199     qc      0         |                
+   |         loc     3    0.000   2.199     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.537                       |                
+   | Partial core correction Rc = 1.537                       |                
+   ------------------------------------------------------------                
+   | "3|2.2|7|8|9|50:51:42"                                   |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+ 
+ Atomic calculation performed for La:
+ 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d10 5s2 5p6 5d1 6s2
+ 
+ Converged in 55 iterations to an ae energy of -230121.495 eV
+ 
+ 
+ Atomic calculation performed for La:
+ 1s2 2s2 2p6 3s2 3p6 3d10 4s2 4p6 4d10 5s2 5p6 5d1 6s2
+ 
+ Exceeded max iterations: converged to 0.000001134 eV
+ 
+ Warning: ion_atom_descreen_psp: negative charge density encountered
+   ============================================================                
+   | Pseudopotential Report - Date of generation 29-03-2022   |                
+   ------------------------------------------------------------                
+   | Element: La Ionic charge: 11.00 Level of theory: PBE     |                
+   | Atomic Solver: ZORA (scalar)                             |                
+   |                                                          |                
+   |               Reference Electronic Structure             |                
+   |         Orbital         Occupation         Energy        |                
+   |            5s              2.000           -1.430        |                
+   |            5p              6.000           -0.823        |                
+   |            6s              2.000           -0.135        |                
+   |            5d              1.000           -0.114        |                
+   |                                                          |                
+   |                 Pseudopotential Definition               |                
+   |        Beta     l      e      Rc     scheme   norm       |                
+   |          1      0   -1.430   2.298     qc      0         |                
+   |          2      0   -0.135   2.298     qc      0         |                
+   |          3      0    0.250   2.298     qc      0         |                
+   |          4      1   -0.823   2.298     qc      0         |                
+   |          5      1    0.250   2.298     qc      0         |                
+   |          6      2   -0.114   2.298     qc      0         |                
+   |          7      2    0.250   2.298     qc      0         |                
+   |         loc     2    0.000   2.298     pn      0         |                
+   |                                                          |                
+   | Augmentation charge Rinner = 1.606                       |                
+   | Partial core correction Rc = 1.606                       |                
+   ------------------------------------------------------------                
+   | "2|2.3|5|6|7|50U:60:51:52(qc=4.5)"                       |                
+   ------------------------------------------------------------                
+   |      Author: Chris J. Pickard, Cambridge University      |                
+   ============================================================                
+ 
+ Pseudo atomic calculation performed for O 2s2 2p4
+ 
+ Converged in 39 iterations to a total energy of -432.6554 eV
+ 
+ 
+ Pseudo atomic calculation performed for Zr 4s2 4p6 4d2 5s2
+ 
+ Converged in 38 iterations to a total energy of -1285.4931 eV
+ 
+ 
+ Pseudo atomic calculation performed for Sn 4d10 5s2 5p2
+ 
+ Converged in 48 iterations to a total energy of -2044.5413 eV
+ 
+ 
+ Pseudo atomic calculation performed for La 5s2 5p6 5d1 6s2
+ 
+ Converged in 34 iterations to a total energy of -968.0373 eV
+ 
+ Calculation parallelised over 896 processes.
+ Data is distributed by G-vector(64-way) and k-point(14-way)
+
+ ************************************ Title ************************************
+ nmr testing
+
+ ***************************** General Parameters ******************************
+  
+ output verbosity                               : normal  (1)
+ write checkpoint data to                       : 71.check
+ type of calculation                            : Magnetic Resonance
+ stress calculation                             : on
+ density difference calculation                 : off
+ electron localisation func (ELF) calculation   : off
+ Hirshfeld analysis                             : off
+ unlimited duration calculation
+ timing information                             : on
+ memory usage estimate                          : on
+ write final potential to formatted file        : off
+ write final density to formatted file          : off
+ write BibTeX reference list                    : off
+ write OTFG pseudopotential files               : on
+ checkpoint writing                             : off
+  
+ output         length unit                     : A
+ output           mass unit                     : amu
+ output           time unit                     : ps
+ output         charge unit                     : e
+ output           spin unit                     : hbar/2
+ output         energy unit                     : eV
+ output          force unit                     : eV/A
+ output       velocity unit                     : A/ps
+ output       pressure unit                     : GPa
+ output     inv_length unit                     : 1/A
+ output      frequency unit                     : cm-1
+ output force constant unit                     : eV/A**2
+ output         volume unit                     : A**3
+ output   IR intensity unit                     : (D/A)**2/amu
+ output         dipole unit                     : D
+ output         efield unit                     : eV/A/e
+ output        entropy unit                     : J/mol/K
+  
+ wavefunctions paging                           : none
+ random number generator seed                   : randomised (125806227)
+ data distribution                              : optimal for this architecture
+ optimization strategy                          : maximize speed(+++)
+
+ *********************** Exchange-Correlation Parameters ***********************
+  
+ using functional                               : Perdew Burke Ernzerhof
+ relativistic treatment                         : ZORA
+ DFT+D: Semi-empirical dispersion correction    : off
+
+ ************************* Pseudopotential Parameters **************************
+  
+ pseudopotential representation                 : reciprocal space
+ <beta|phi> representation                      : reciprocal space
+ spin-orbit coupling                            : off
+
+ **************************** Basis Set Parameters *****************************
+  
+ plane wave basis set cut-off                   :   816.3416   eV
+ size of standard grid                          :     1.7500
+ size of   fine   gmax                          :    25.6161   1/A
+ finite basis set correction                    : automatic
+ number of sample energies                      :          3
+           sample  spacing                      :     5.0000   eV
+
+ **************************** Electronic Parameters ****************************
+  
+ number of  electrons                           :  722.0    
+ net charge of system                           :  0.000    
+ treating system as non-spin-polarized
+ number of bands                                :        433
+
+ ********************* Electronic Minimization Parameters **********************
+  
+ Method: Treating system as metallic with density mixing treatment of electrons,
+         and number of  SD  steps               :          1
+         and number of  CG  steps               :          4
+  
+ total energy / atom convergence tol.           : 0.1000E-08   eV
+ eigen-energy convergence tolerance             : 0.2438E-09   eV
+ max force / atom convergence tol.              : ignored
+ convergence tolerance window                   :          3   cycles
+ max. number of SCF cycles                      :        250
+ number of fixed-spin iterations                :         10
+ smearing scheme                                : Gaussian
+ smearing width                                 : 0.2000       eV
+ Fermi energy convergence tolerance             : 0.2721E-13   eV
+ periodic dipole correction                     : NONE
+
+ ************************** Density Mixing Parameters **************************
+  
+ density-mixing scheme                          : Broyden
+ max. length of mixing history                  :         20
+ charge density mixing amplitude                : 0.8000    
+ cut-off energy for mixing                      :  816.3       eV
+
+ *********************** Population Analysis Parameters ************************
+  
+ Population analysis with cutoff                :  3.000       A
+
+ ************************ Magnetic Resonance Parameters ************************
+  
+ Magnetic Resonance Property                    : Chemical Shielding + EFG
+ Position Operator Method                       : crystal
+ max. number of MagRes CG steps                 :        250
+ convergence tolerance window                   :          2   cycles
+ energy convergence tolerance                   : 0.1000E-11   eV
+ band convergence tolerance                     : 0.1000E-08   eV
+
+ *******************************************************************************
+  
+ 
+                           -------------------------------
+                                      Unit Cell
+                           -------------------------------
+        Real Lattice(A)                      Reciprocal Lattice(1/A)
+  10.8978528   0.0020365  -0.0015530        0.5765526  -0.0001090   0.0000823
+   0.0020594  10.8994818   0.0023136       -0.0001077   0.5764665  -0.0001212
+  -0.0015551   0.0022906  10.8978902        0.0000822  -0.0001224   0.5765507
+ 
+                       Lattice parameters(A)       Cell Angles
+                    a =   10.897853          alpha =   89.975797
+                    b =   10.899482          beta  =   90.016338
+                    c =   10.897891          gamma =   89.978469
+ 
+                       Current cell volume = 1294.461614       A**3
+ 
+                           -------------------------------
+                                     Cell Contents
+                           -------------------------------
+                         Total number of ions in cell =   88
+                      Total number of species in cell =    4
+                        Max number of any one species =   56
+ 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            x  Element    Atom        Fractional coordinates of atoms  x
+            x            Number           u          v          w      x
+            x----------------------------------------------------------x
+            x  O            1         0.124987   0.124650   0.124979   x 
+            x  O            2         0.624955   0.124829   0.624972   x 
+            x  O            3         0.125113   0.625183   0.624972   x 
+            x  O            4         0.624956   0.625422   0.125106   x 
+            x  O            5         0.874869   0.375149   0.375073   x 
+            x  O            6         0.874888   0.874886   0.875167   x 
+            x  O            7         0.375137   0.375138   0.874914   x 
+            x  O            8         0.375246   0.874786   0.374949   x 
+            x  O            9         0.420687   0.126075   0.125930   x 
+            x  O           10         0.330529   0.124977   0.624327   x 
+            x  O           11         0.829069   0.624144   0.626469   x 
+            x  O           12         0.920313   0.624013   0.123722   x 
+            x  O           13         0.124925   0.419958   0.124910   x 
+            x  O           14         0.624941   0.330330   0.124563   x 
+            x  O           15         0.624867   0.829606   0.624927   x 
+            x  O           16         0.125035   0.919581   0.624939   x 
+            x  O           17         0.125574   0.125343   0.419555   x 
+            x  O           18         0.126029   0.624250   0.329372   x 
+            x  O           19         0.626307   0.623908   0.829357   x 
+            x  O           20         0.625953   0.126149   0.920587   x 
+            x  O           21         0.875215   0.670553   0.375033   x 
+            x  O           22         0.875019   0.580549   0.875232   x 
+            x  O           23         0.373937   0.078970   0.873884   x 
+            x  O           24         0.374729   0.169457   0.375544   x 
+            x  O           25         0.169763   0.374587   0.375152   x 
+            x  O           26         0.079433   0.875778   0.376314   x 
+            x  O           27         0.579726   0.874910   0.875253   x 
+            x  O           28         0.669626   0.375060   0.875591   x 
+            x  O           29         0.874909   0.375114   0.080488   x 
+            x  O           30         0.375195   0.375181   0.169815   x 
+            x  O           31         0.373853   0.876229   0.670667   x 
+            x  O           32         0.876327   0.875882   0.579242   x 
+            x  O           33         0.670088   0.875236   0.374960   x 
+            x  O           34         0.080545   0.374518   0.874960   x 
+            x  O           35         0.375299   0.670544   0.875475   x 
+            x  O           36         0.876009   0.078967   0.376094   x 
+            x  O           37         0.875543   0.374482   0.669582   x 
+            x  O           38         0.375204   0.874791   0.079881   x 
+            x  O           39         0.124577   0.330663   0.624953   x 
+            x  O           40         0.624895   0.920044   0.125001   x 
+            x  O           41         0.919434   0.125436   0.625589   x 
+            x  O           42         0.329669   0.624018   0.125850   x 
+            x  O           43         0.123611   0.624277   0.920599   x 
+            x  O           44         0.623886   0.125716   0.329409   x 
+            x  O           45         0.420421   0.625265   0.624445   x 
+            x  O           46         0.829305   0.126216   0.123958   x 
+            x  O           47         0.124404   0.125448   0.830441   x 
+            x  O           48         0.624553   0.624967   0.420164   x 
+            x  O           49         0.875409   0.169289   0.874588   x 
+            x  O           50         0.374562   0.579937   0.374330   x 
+            x  O           51         0.170728   0.875870   0.873679   x 
+            x  O           52         0.579633   0.374388   0.374196   x 
+            x  O           53         0.874809   0.874835   0.170160   x 
+            x  O           54         0.374240   0.373793   0.579636   x 
+            x  O           55         0.125043   0.829616   0.124980   x 
+            x  O           56         0.626078   0.420810   0.626059   x 
+            x  Zr           1         0.499750   0.499746   0.499700   x 
+            x  Zr           2         0.249627   0.749704   0.000189   x 
+            x  Zr           3         0.749358   0.000154   0.249567   x 
+            x  Zr           4         0.000248   0.749725   0.249629   x 
+            x  Zr           5         0.500202   0.000167   0.000157   x 
+            x  Zr           6         0.750075   0.750104   0.500126   x 
+            x  Zr           7         0.500047   0.750098   0.750030   x 
+            x  Sn           1        -0.000018   0.249981   0.749989   x 
+            x  Sn           2         0.750886   0.250960  -0.000888   x 
+            x  Sn           3         0.248502   0.001458   0.748414   x 
+            x  Sn           4         0.249581   0.249550   0.500371   x 
+            x  Sn           5         0.751561   0.498571   0.751575   x 
+            x  Sn           6         0.250471   0.499422   0.250456   x 
+            x  Sn           7        -0.000883   0.499035  -0.000869   x 
+            x  Sn           8         0.499464   0.250542   0.250441   x 
+            x  Sn           9         0.001440   0.001465   0.501467   x 
+            x  La           1        -0.000085  -0.000501   0.000321   x 
+            x  La           2         0.749670   0.249915   0.499676   x 
+            x  La           3         0.250382   0.500465   0.749983   x 
+            x  La           4         0.499992   0.749975   0.250024   x 
+            x  La           5         0.250218   0.749883   0.499802   x 
+            x  La           6         0.749832   0.500465   0.250236   x 
+            x  La           7         0.500058   0.249953   0.749980   x 
+            x  La           8        -0.000208   0.500610   0.499700   x 
+            x  La           9         0.749821   0.750176   0.000150   x 
+            x  La          10         0.250134  -0.000513   0.249802   x 
+            x  La          11         0.250322   0.249746   0.000102   x 
+            x  La          12         0.749668  -0.000493   0.750005   x 
+            x  La          13         0.500271  -0.000453   0.499888   x 
+            x  La          14        -0.000073   0.750074   0.749985   x 
+            x  La          15        -0.000285   0.249701   0.250004   x 
+            x  La          16         0.499916   0.500539  -0.000009   x 
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ 
+ 
+                         No user defined ionic velocities
+ 
+                           -------------------------------
+                                   Details of Species
+                           -------------------------------
+ 
+                               Mass of species in AMU
+                                    O   15.9994000
+                                    Zr   91.2240000
+                                    Sn  118.7100000
+                                    La  138.9055000
+ 
+                          Electric Quadrupole Moment (Barn)
+                                    O   -0.0255800 Isotope 17
+                                    Zr   -0.1760000 Isotope 91
+                                    Sn    1.0000000 No Isotope Defined
+                                    La    0.2000000 Isotope139
+ 
+                          Files used for pseudopotentials:
+                                    O 2|1.1|15|18|20|20:21(qc=7)
+                                    Zr 3|2.1|7|8|9|40U:50:41:42
+                                    Sn 3|2.2|7|8|9|50:51:42
+                                    La 2|2.3|5|6|7|50U:60:51:52(qc=4.5)
+ 
+                           -------------------------------
+                              k-Points For BZ Sampling
+                           -------------------------------
+                       MP grid size for SCF calculation is  3  3  3
+                            with an offset of   0.000  0.000  0.000
+                       Number of kpoints used =   14
+ 
+                           -------------------------------
+                               Symmetry and Constraints
+                           -------------------------------
+ 
+                      Maximum deviation from symmetry =  0.00000         ANG
+ 
+         There are no symmetry operations specified or generated for this cell
+                      Number of ionic constraints     = 3
+                      Point group of crystal =     1: C1, 1, 1
+                      Space group of crystal =     1: P1, P 1
+ 
+ 
+                         Centre of mass is constrained
+             Set iprint > 1 for details of linear ionic constraints
+ 
+                         Number of cell constraints= 0
+                         Cell constraints are:  1 2 3 4 5 6
+ 
+                         External pressure/stress (GPa)
+                          0.00000   0.00000   0.00000
+                                    0.00000   0.00000
+                                              0.00000
+  
++---------------- MEMORY AND SCRATCH DISK ESTIMATES PER PROCESS --------------+
+|                                                     Memory          Disk    |
+| Baseline code, static data and system overhead      839.0 MB         0.0 MB |
+| BLAS internal memory storage                          0.0 MB         0.0 MB |
+| Model and support data                              149.4 MB         0.0 MB |
+| Electronic energy minimisation requirements          28.3 MB         0.0 MB |
+| Force calculation requirements                        1.5 MB         0.0 MB |
+| Stress calculation requirements                       1.8 MB         0.0 MB |
+|                                               ----------------------------- |
+| Approx. total storage required per process         1016.7 MB         0.0 MB |
+|                                                                             |
+| Requirements will fluctuate during execution and may exceed these estimates |
++-----------------------------------------------------------------------------+
+Calculating finite basis set correction with  3 cut-off energies.
+Calculating total energy with cut-off of  806.342eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -5.72080415E+004  0.00000000E+000                        34.97  <-- SCF
+      1  -6.52795552E+004  7.43433382E+000   9.17217469E+001      45.75  <-- SCF
+      2  -6.78349778E+004  6.72302120E+000   2.90388931E+001      53.05  <-- SCF
+      3  -6.79196038E+004  6.28409538E+000   9.61658328E-001      61.21  <-- SCF
+      4  -6.79124879E+004  7.58545284E+000  -8.08622933E-002      70.82  <-- SCF
+      5  -6.78118753E+004  6.84772448E+000  -1.14332474E+000      80.09  <-- SCF
+      6  -6.78131237E+004  6.72642908E+000   1.41867288E-002      92.15  <-- SCF
+      7  -6.78127718E+004  6.81357424E+000  -3.99997401E-003     102.09  <-- SCF
+      8  -6.78128631E+004  6.81658215E+000   1.03815485E-003     115.90  <-- SCF
+      9  -6.78128846E+004  6.81540458E+000   2.44276750E-004     127.08  <-- SCF
+     10  -6.78128843E+004  6.81320505E+000  -3.09882148E-006     137.41  <-- SCF
+     11  -6.78128838E+004  6.81423336E+000  -5.91699498E-006     148.00  <-- SCF
+     12  -6.78128840E+004  6.81384410E+000   1.92952036E-006     159.41  <-- SCF
+     13  -6.78128840E+004  6.81323468E+000  -8.68364061E-008     169.10  <-- SCF
+     14  -6.78128839E+004  6.81289939E+000  -5.67186548E-007     179.11  <-- SCF
+     15  -6.78128839E+004  6.81239248E+000  -1.37634898E-007     189.87  <-- SCF
+     16  -6.78128839E+004  6.81217113E+000   9.38478562E-010     199.17  <-- SCF
+     17  -6.78128839E+004  6.81211777E+000  -4.14961078E-009     207.84  <-- SCF
+     18  -6.78128839E+004  6.81205125E+000   9.53524593E-010     215.03  <-- SCF
+     19  -6.78128839E+004  6.81201277E+000   4.66286322E-010     221.75  <-- SCF
+     20  -6.78128839E+004  6.81201625E+000   5.73717791E-011     228.04  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -67812.88391234     eV
+Final free energy (E-TS)    =  -67812.88391234     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -67812.88391234     eV
+ 
+Calculating total energy with cut-off of  811.342eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -6.78128839E+004  0.00000000E+000                       230.18  <-- SCF
+      1  -6.78128864E+004  6.81201361E+000   2.78733045E-005     238.75  <-- SCF
+      2  -6.78128864E+004  6.81201361E+000   1.80833598E-010     244.99  <-- SCF
+      3  -6.78128864E+004  6.81200845E+000   1.60320374E-008     251.22  <-- SCF
+      4  -6.78128864E+004  6.81201586E+000   5.46859923E-010     257.46  <-- SCF
+      5  -6.78128864E+004  6.81201321E+000  -7.74800252E-011     263.70  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -67812.88636665     eV
+Final free energy (E-TS)    =  -67812.88636665     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -67812.88636665     eV
+ 
+Calculating total energy with cut-off of  816.342eV.
+------------------------------------------------------------------------ <-- SCF
+SCF loop      Energy           Fermi           Energy gain       Timer   <-- SCF
+                               energy          per atom          (sec)   <-- SCF
+------------------------------------------------------------------------ <-- SCF
+Initial  -6.78128864E+004  0.00000000E+000                       265.83  <-- SCF
+      1  -6.78128894E+004  6.81201259E+000   3.40588502E-005     274.52  <-- SCF
+      2  -6.78128894E+004  6.81201259E+000   2.05019740E-010     280.85  <-- SCF
+      3  -6.78128894E+004  6.81200727E+000   2.13008198E-008     287.18  <-- SCF
+      4  -6.78128894E+004  6.81201261E+000   6.80868025E-010     293.48  <-- SCF
+      5  -6.78128894E+004  6.81200882E+000  -1.12493684E-012     299.81  <-- SCF
+------------------------------------------------------------------------ <-- SCF
+ 
+Final energy, E             =  -67812.88936578     eV
+Final free energy (E-TS)    =  -67812.88936578     eV
+(energies not corrected for finite basis set)
+ 
+NB est. 0K energy (E-0.5TS)      =  -67812.88936578     eV
+ 
+ For future reference: finite basis dEtot/dlog(Ecut) =      -0.440477eV
+ Total energy corrected for finite basis set =  -67812.889361 eV
+ 
+  =====================================================================
+  +       Calculation of Nuclear Magnetic Resonance Parameters        +
+  + ================================================================= +
+ 
+  Starting Calculation of Electric Field Gradient Tensors         |<-- EFG
+  +---------------- MEMORY AND SCRATCH DISK ESTIMATES PER PROCESS --------------+
+  |                                                     Memory          Disk    |
+  | Model and support data                              151.1 MB         0.0 MB |
+  | NMR EFG calculation requirements                     27.4 MB         0.0 MB |
+  |                                               ----------------------------- |
+  | Approx. total storage required per process          178.5 MB         0.0 MB |
+  |                                                                             |
+  | Requirements will fluctuate during execution and may exceed these estimates |
+  +-----------------------------------------------------------------------------+
+  Total Time for EFG Tensors                      31.86 sec       |<-- EFG
+ 
+  Starting Calculation of Chemical Shielding Tensors              |<-- NMR
+  +---------------- MEMORY AND SCRATCH DISK ESTIMATES PER PROCESS --------------+
+  |                                                     Memory          Disk    |
+  | Model and support data                              151.1 MB         0.0 MB |
+  | NMR chemical shift calculation requirements          90.7 MB         0.0 MB |
+  |                                               ----------------------------- |
+  | Approx. total storage required per process          241.8 MB         0.0 MB |
+  |                                                                             |
+  | Requirements will fluctuate during execution and may exceed these estimates |
+  +-----------------------------------------------------------------------------+
+  Starting k-point:   1 of   1                                    |<-- NMR
+  Total Time for step 1 of 6:                    276.36 sec       |<-- NMR
+  Total Time for step 2 of 6:                    273.59 sec       |<-- NMR
+  Total Time for step 3 of 6:                    272.50 sec       |<-- NMR
+  Total Time for step 4 of 6:                    273.00 sec       |<-- NMR
+  Total Time for step 5 of 6:                    273.25 sec       |<-- NMR
+  Total Time for step 6 of 6:                    263.73 sec       |<-- NMR
+  Total Time for Chemical Shielding Tensors     2412.62 sec       |<-- NMR
+ 
+  ========================================================================
+  |           Chemical Shielding and Electric Field Gradient Tensors     |
+  |----------------------------------------------------------------------|
+  |     Nucleus                Shielding tensor             EFG Tensor   |
+  |  Species       Ion    Iso(ppm)   Aniso(ppm)  Asym    Cq(MHz)    Eta  |
+  |    O           1     -319.18      -4.64      0.34   3.642E-02   0.64 |
+  |    O           2     -318.29      -7.82      0.20   4.353E-02   0.31 |
+  |    O           3     -318.30       9.95      0.72  -6.711E-02   0.37 |
+  |    O           4     -319.94      -7.34      0.85  -6.574E-02   0.72 |
+  |    O           5     -318.05       6.23      0.31  -4.078E-02   0.47 |
+  |    O           6     -318.37       5.65      0.61  -4.407E-02   0.62 |
+  |    O           7     -318.31      10.23      0.58  -4.986E-02   0.56 |
+  |    O           8     -318.99       6.81      0.98  -6.036E-02   0.44 |
+  |    O           9      -83.70      85.25      0.06  -3.209E+00   0.07 |
+  |    O          10      -19.86      38.90      0.75   3.911E+00   0.83 |
+  |    O          11      -82.53      85.08      0.21  -3.149E+00   0.07 |
+  |    O          12      -89.63      78.12      0.17  -3.214E+00   0.10 |
+  |    O          13        0.35     -67.52      0.90   3.752E+00   0.99 |
+  |    O          14       -5.94      66.29      0.97   3.758E+00   0.94 |
+  |    O          15     -160.61     157.84      0.79   1.093E+00   0.73 |
+  |    O          16      -19.05      40.58      0.29   3.967E+00   0.79 |
+  |    O          17      -17.84      37.90      0.96   3.872E+00   0.87 |
+  |    O          18      -85.89      87.12      0.36  -3.181E+00   0.09 |
+  |    O          19      -86.21      74.98      0.10  -3.198E+00   0.10 |
+  |    O          20      -86.62      86.29      0.06  -3.166E+00   0.07 |
+  |    O          21     -159.35     151.65      0.80   1.102E+00   0.66 |
+  |    O          22      -21.68      42.02      0.29   3.946E+00   0.79 |
+  |    O          23      -81.48      85.98      0.25  -3.121E+00   0.04 |
+  |    O          24      -15.47      59.91      0.63   3.819E+00   0.87 |
+  |    O          25       -8.75      57.32      0.84   3.820E+00   0.94 |
+  |    O          26      -85.59      80.59      0.21  -3.158E+00   0.08 |
+  |    O          27     -160.88     157.37      0.79   1.057E+00   0.76 |
+  |    O          28      -17.33      38.75      0.72   3.931E+00   0.84 |
+  |    O          29      -16.31     -39.68      0.82   3.883E+00   0.88 |
+  |    O          30       -7.29      57.23      0.74   3.879E+00   0.90 |
+  |    O          31      -85.66      75.63      0.03  -3.197E+00   0.10 |
+  |    O          32      -84.16      84.51      0.18  -3.137E+00   0.07 |
+  |    O          33     -163.37     159.85      0.77   1.011E+00   0.89 |
+  |    O          34      -18.02     -42.80      0.62   3.823E+00   0.92 |
+  |    O          35     -159.34     152.10      0.79   1.109E+00   0.65 |
+  |    O          36      -80.33      79.79      0.23  -3.145E+00   0.06 |
+  |    O          37      -18.80      37.16      0.90   3.876E+00   0.87 |
+  |    O          38     -161.98     156.00      0.79   1.023E+00   0.79 |
+  |    O          39      -20.13     -43.00      0.61   3.808E+00   0.92 |
+  |    O          40     -166.06     165.10      0.80   1.013E+00   0.97 |
+  |    O          41      -20.26      37.85      0.93   3.855E+00   0.87 |
+  |    O          42      -89.30      77.30      0.32  -3.224E+00   0.12 |
+  |    O          43      -86.20      88.11      0.21  -3.170E+00   0.07 |
+  |    O          44      -86.90      86.88      0.14  -3.184E+00   0.09 |
+  |    O          45     -160.53     153.16      0.78   1.076E+00   0.67 |
+  |    O          46      -84.46      85.00      0.07  -3.196E+00   0.07 |
+  |    O          47      -19.34      37.50      0.92   3.874E+00   0.87 |
+  |    O          48     -163.80     154.47      0.77   1.022E+00   0.80 |
+  |    O          49      -22.62      39.17      0.95   3.839E+00   0.87 |
+  |    O          50      -93.80      85.50      0.13  -3.222E+00   0.13 |
+  |    O          51      -84.14      83.31      0.19  -3.162E+00   0.07 |
+  |    O          52      -87.14      85.48      0.24  -3.226E+00   0.09 |
+  |    O          53     -161.59     157.90      0.77   1.040E+00   0.76 |
+  |    O          54      -87.84      85.30      0.11  -3.190E+00   0.07 |
+  |    O          55     -161.23     159.14      0.83   1.107E+00   0.72 |
+  |    O          56      -83.53      85.16      0.18  -3.139E+00   0.04 |
+  |    Zr          1     1615.93    -118.88      0.11  -3.625E+01   0.08 |
+  |    Zr          2     1628.89    -124.33      0.08  -3.694E+01   0.18 |
+  |    Zr          3     1629.78    -128.02      0.21  -3.702E+01   0.01 |
+  |    Zr          4     1628.64    -124.40      0.16  -3.698E+01   0.20 |
+  |    Zr          5     1630.76    -126.52      0.18  -3.675E+01   0.03 |
+  |    Zr          6     1634.56    -123.93      0.17  -3.776E+01   0.11 |
+  |    Zr          7     1635.02    -127.71      0.21  -3.784E+01   0.20 |
+  |    Sn          1     3234.45     -64.21      0.12   1.155E+02   0.09 |
+  |    Sn          2     3245.87     -63.44      0.23   1.222E+02   0.22 |
+  |    Sn          3     3239.07     -46.32      0.05   1.235E+02   0.05 |
+  |    Sn          4     3244.10     -62.43      0.25   1.189E+02   0.17 |
+  |    Sn          5     3238.76     -46.20      0.05   1.234E+02   0.03 |
+  |    Sn          6     3256.40     -62.29      0.40   1.244E+02   0.03 |
+  |    Sn          7     3247.39     -60.09      0.04   1.208E+02   0.09 |
+  |    Sn          8     3256.23     -63.70      0.24   1.256E+02   0.28 |
+  |    Sn          9     3239.34     -46.46      0.25   1.229E+02   0.11 |
+  |    La          1     4655.06     630.11      0.00  -8.151E+01   0.03 |
+  |    La          2     4608.32     521.23      0.07  -7.926E+01   0.13 |
+  |    La          3     4662.36     625.52      0.01  -8.273E+01   0.01 |
+  |    La          4     4745.31     877.77      0.05  -8.583E+01   0.08 |
+  |    La          5     4650.24     659.14      0.11  -8.081E+01   0.18 |
+  |    La          6     4654.87     626.89      0.01  -8.145E+01   0.01 |
+  |    La          7     4608.82     542.21      0.07  -7.930E+01   0.22 |
+  |    La          8     4609.72     514.78      0.07  -7.871E+01   0.08 |
+  |    La          9     4697.46     762.05      0.05  -8.328E+01   0.11 |
+  |    La         10     4654.66     628.00      0.00  -8.163E+01   0.03 |
+  |    La         11     4559.29     384.61      0.05  -7.601E+01   0.12 |
+  |    La         12     4656.71     632.27      0.00  -8.164E+01   0.03 |
+  |    La         13     4650.40     634.96      0.01  -8.021E+01   0.03 |
+  |    La         14     4602.25     550.78      0.09  -7.829E+01   0.23 |
+  |    La         15     4558.29     381.45      0.05  -7.592E+01   0.13 |
+  |    La         16     4600.98     515.57      0.09  -7.740E+01   0.10 |
+  ========================================================================
+ 
+ *********************** Forces ***********************
+ *                                                    *
+ *            Cartesian components (eV/A)             *
+ * -------------------------------------------------- *
+ *                   x            y            z      *
+ *                                                    *
+ * O         1      0.00502     -0.01209      0.00775 *
+ * O         2      0.00034     -0.00950     -0.00334 *
+ * O         3     -0.00167      0.01907     -0.00398 *
+ * O         4     -0.00083      0.01561      0.00258 *
+ * O         5     -0.01074      0.00593     -0.00676 *
+ * O         6     -0.00524     -0.01347     -0.00258 *
+ * O         7      0.00829      0.00466      0.00466 *
+ * O         8      0.00260     -0.01364     -0.00168 *
+ * O         9     -0.00017      0.00211     -0.01370 *
+ * O        10     -0.00044     -0.00249     -0.01039 *
+ * O        11     -0.00056      0.02067     -0.00262 *
+ * O        12      0.00626      0.00648      0.01436 *
+ * O        13      0.00547     -0.04051      0.00546 *
+ * O        14     -0.00892      0.03922     -0.00068 *
+ * O        15      0.00833      0.01351     -0.00394 *
+ * O        16     -0.00668      0.00168     -0.00698 *
+ * O        17     -0.00173     -0.00243     -0.01091 *
+ * O        18     -0.00588      0.00293     -0.01005 *
+ * O        19     -0.00560      0.00963     -0.00512 *
+ * O        20     -0.01752     -0.00309      0.00024 *
+ * O        21      0.00937     -0.01312      0.00550 *
+ * O        22      0.01036     -0.00366      0.00970 *
+ * O        23      0.00902      0.00054      0.01000 *
+ * O        24      0.00139     -0.01516     -0.00861 *
+ * O        25     -0.02349     -0.00052     -0.01448 *
+ * O        26      0.00244     -0.01687     -0.00380 *
+ * O        27      0.01661      0.00238      0.00499 *
+ * O        28     -0.00005      0.00797      0.00989 *
+ * O        29      0.00280      0.00429      0.01464 *
+ * O        30     -0.00439      0.00343     -0.01645 *
+ * O        31      0.00847     -0.00752      0.00385 *
+ * O        32      0.00257     -0.01310      0.00501 *
+ * O        33     -0.00084      0.00751      0.00528 *
+ * O        34      0.01886     -0.00021      0.01253 *
+ * O        35      0.00589     -0.01325      0.01161 *
+ * O        36     -0.01204     -0.00194     -0.01079 *
+ * O        37      0.00086      0.00416     -0.00681 *
+ * O        38     -0.00189     -0.00234      0.01060 *
+ * O        39     -0.00296      0.01835     -0.00916 *
+ * O        40      0.00027      0.00112      0.00267 *
+ * O        41     -0.00977     -0.00597     -0.00448 *
+ * O        42     -0.01480     -0.00687     -0.01076 *
+ * O        43     -0.00109      0.00932      0.00021 *
+ * O        44      0.00799     -0.00626     -0.00993 *
+ * O        45     -0.01468      0.01240     -0.00639 *
+ * O        46     -0.00617     -0.00321      0.02156 *
+ * O        47      0.00144      0.00019      0.00480 *
+ * O        48      0.01032      0.00823     -0.00667 *
+ * O        49     -0.00366     -0.00692      0.00414 *
+ * O        50      0.00344     -0.01820      0.00155 *
+ * O        51     -0.00246     -0.01780      0.00033 *
+ * O        52     -0.00246      0.00996      0.00563 *
+ * O        53     -0.00441     -0.00317     -0.00834 *
+ * O        54      0.01784      0.00659     -0.00141 *
+ * O        55     -0.00488      0.00979      0.00524 *
+ * O        56     -0.00151     -0.00462     -0.00371 *
+ * Zr        1     -0.00654     -0.00251      0.00307 *
+ * Zr        2     -0.01734     -0.00617     -0.00090 *
+ * Zr        3     -0.01371      0.00176     -0.00656 *
+ * Zr        4      0.00571     -0.00234     -0.00958 *
+ * Zr        5     -0.00196      0.00238     -0.00003 *
+ * Zr        6      0.01469      0.00833      0.00462 *
+ * Zr        7     -0.00405      0.00466      0.00292 *
+ * Sn        1      0.00198      0.00181      0.00264 *
+ * Sn        2      0.01346      0.01151     -0.01702 *
+ * Sn        3     -0.01590      0.03182     -0.01842 *
+ * Sn        4     -0.00031     -0.00078      0.01432 *
+ * Sn        5      0.02445     -0.02847      0.02595 *
+ * Sn        6      0.00789     -0.01557      0.00811 *
+ * Sn        7     -0.00910     -0.02515     -0.01366 *
+ * Sn        8     -0.00647      0.00859      0.00857 *
+ * Sn        9      0.02284      0.03562      0.01998 *
+ * La        1      0.00732      0.02023     -0.00020 *
+ * La        2      0.00667      0.00017      0.00321 *
+ * La        3     -0.00068     -0.01877     -0.00169 *
+ * La        4     -0.00995     -0.00654      0.00211 *
+ * La        5     -0.01012     -0.01560      0.01459 *
+ * La        6      0.00911     -0.02891      0.00719 *
+ * La        7     -0.00623      0.00273      0.00101 *
+ * La        8      0.00235     -0.01774      0.00177 *
+ * La        9      0.01354      0.00278     -0.01303 *
+ * La       10     -0.01181      0.02272     -0.00844 *
+ * La       11     -0.00512      0.00453     -0.00567 *
+ * La       12      0.00085      0.02457     -0.00064 *
+ * La       13      0.00350      0.02454      0.01464 *
+ * La       14      0.00811     -0.00668     -0.00147 *
+ * La       15      0.00273      0.00197     -0.00045 *
+ * La       16     -0.01462     -0.02528     -0.01726 *
+ *                                                    *
+ ******************************************************
+ 
+ ***************** Stress Tensor *****************
+ *                                               *
+ *          Cartesian components (GPa)           *
+ * --------------------------------------------- *
+ *             x             y             z     *
+ *                                               *
+ *  x      0.041383     -0.006448     -0.012954  *
+ *  y     -0.006448      0.024088     -0.007279  *
+ *  z     -0.012954     -0.007279      0.042317  *
+ *                                               *
+ *  Pressure:   -0.0359                          *
+ *                                               *
+ *************************************************
+ 
+ Pseudo atomic calculation performed for O 2s2 2p4
+ 
+ Converged in 39 iterations to a total energy of -432.6554 eV
+ 
+ 
+ Pseudo atomic calculation performed for Zr 4s2 4p6 4d2 5s2
+ 
+ Converged in 38 iterations to a total energy of -1285.4931 eV
+ 
+ 
+ Pseudo atomic calculation performed for Sn 4d10 5s2 5p2
+ 
+ Converged in 48 iterations to a total energy of -2044.5413 eV
+ 
+ 
+ Pseudo atomic calculation performed for La 5s2 5p6 5d1 6s2
+ 
+ Converged in 34 iterations to a total energy of -968.0373 eV
+ 
+Charge spilling parameter for spin component 1 = 0.25%
+ 
+     Atomic Populations (Mulliken)
+     -----------------------------
+Species   Ion     s      p      d      f     Total  Charge (e)
+==============================================================
+  O        1     1.87   5.00   0.00   0.00   6.87    -0.87
+  O        2     1.87   5.00   0.00   0.00   6.87    -0.87
+  O        3     1.87   5.00   0.00   0.00   6.87    -0.87
+  O        4     1.87   5.00   0.00   0.00   6.87    -0.87
+  O        5     1.87   5.00   0.00   0.00   6.87    -0.87
+  O        6     1.87   5.00   0.00   0.00   6.87    -0.87
+  O        7     1.87   5.00   0.00   0.00   6.87    -0.87
+  O        8     1.87   5.00   0.00   0.00   6.87    -0.87
+  O        9     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       10     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       11     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       12     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       13     1.88   5.02   0.00   0.00   6.91    -0.91
+  O       14     1.88   5.02   0.00   0.00   6.91    -0.91
+  O       15     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       16     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       17     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       18     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       19     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       20     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       21     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       22     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       23     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       24     1.88   5.02   0.00   0.00   6.91    -0.91
+  O       25     1.88   5.02   0.00   0.00   6.91    -0.91
+  O       26     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       27     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       28     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       29     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       30     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       31     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       32     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       33     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       34     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       35     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       36     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       37     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       38     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       39     1.89   5.03   0.00   0.00   6.91    -0.91
+  O       40     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       41     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       42     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       43     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       44     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       45     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       46     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       47     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       48     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       49     1.88   5.03   0.00   0.00   6.91    -0.91
+  O       50     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       51     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       52     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       53     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       54     1.87   4.99   0.00   0.00   6.86    -0.86
+  O       55     1.86   4.95   0.00   0.00   6.80    -0.80
+  O       56     1.87   4.99   0.00   0.00   6.86    -0.86
+  Zr       1     2.37   6.49   1.92   0.00  10.78     1.22
+  Zr       2     2.37   6.48   1.92   0.00  10.77     1.23
+  Zr       3     2.37   6.48   1.92   0.00  10.77     1.23
+  Zr       4     2.37   6.48   1.92   0.00  10.77     1.23
+  Zr       5     2.37   6.48   1.92   0.00  10.77     1.23
+  Zr       6     2.36   6.47   1.93   0.00  10.76     1.24
+  Zr       7     2.36   6.47   1.93   0.00  10.76     1.24
+  Sn       1     1.04   1.31  10.00   0.00  12.36     1.64
+  Sn       2     1.04   1.31  10.00   0.00  12.35     1.65
+  Sn       3     1.04   1.31  10.00   0.00  12.35     1.65
+  Sn       4     1.04   1.31  10.00   0.00  12.36     1.64
+  Sn       5     1.04   1.31  10.00   0.00  12.35     1.65
+  Sn       6     1.05   1.31  10.00   0.00  12.36     1.64
+  Sn       7     1.04   1.31  10.00   0.00  12.36     1.64
+  Sn       8     1.05   1.31  10.00   0.00  12.36     1.64
+  Sn       9     1.04   1.31  10.00   0.00  12.35     1.65
+  La       1     2.07   6.17   1.19   0.00   9.44     1.56
+  La       2     2.09   6.18   1.19   0.00   9.46     1.54
+  La       3     2.06   6.18   1.19   0.00   9.43     1.57
+  La       4     2.01   6.14   1.20   0.00   9.35     1.65
+  La       5     2.06   6.17   1.19   0.00   9.42     1.58
+  La       6     2.05   6.18   1.19   0.00   9.42     1.58
+  La       7     2.09   6.18   1.19   0.00   9.47     1.53
+  La       8     2.09   6.18   1.19   0.00   9.47     1.53
+  La       9     2.04   6.15   1.20   0.00   9.39     1.61
+  La      10     2.05   6.18   1.19   0.00   9.43     1.57
+  La      11     2.11   6.20   1.19   0.00   9.50     1.50
+  La      12     2.05   6.17   1.19   0.00   9.42     1.58
+  La      13     2.06   6.17   1.19   0.00   9.43     1.57
+  La      14     2.08   6.18   1.19   0.00   9.45     1.55
+  La      15     2.12   6.20   1.19   0.00   9.51     1.49
+  La      16     2.09   6.18   1.19   0.00   9.46     1.54
+==============================================================
+ 
+            Bond              Population      Length (A)
+============================================================
+         O 52 -- Sn 8              0.35        2.09907
+         O 16 -- Sn 3              0.34        2.10200
+         O 16 -- Sn 9              0.34        2.10200
+         O 9  -- Sn 8              0.35        2.10248
+         O 50 -- Sn 6              0.34        2.10289
+         O 28 -- Sn 2              0.34        2.10303
+         O 22 -- Sn 5              0.34        2.10368
+         O 46 -- Sn 2              0.35        2.10404
+         O 44 -- Sn 8              0.34        2.10409
+         O 54 -- Sn 4              0.35        2.10411
+         O 18 -- Sn 6              0.34        2.10479
+         O 42 -- Sn 6              0.34        2.10551
+         O 28 -- Sn 5              0.34        2.10623
+         O 17 -- Sn 4              0.34        2.10628
+         O 43 -- Sn 7              0.34        2.10657
+         O 12 -- Sn 7              0.35        2.10665
+         O 20 -- Sn 2              0.34        2.10674
+         O 22 -- Sn 7              0.33        2.10678
+         O 10 -- Sn 3              0.34        2.10721
+         O 10 -- Sn 4              0.33        2.10795
+         O 29 -- Sn 7              0.34        2.10800
+         O 37 -- Sn 1              0.34        2.10837
+         O 11 -- Sn 5              0.34        2.10844
+         O 40 -- Zr 3              0.42        2.10851
+         O 36 -- Sn 9              0.34        2.10854
+         O 29 -- Sn 2              0.34        2.10859
+         O 47 -- Sn 1              0.34        2.10870
+         O 31 -- Sn 3              0.34        2.10885
+         O 19 -- Sn 5              0.34        2.10907
+         O 30 -- Sn 8              0.34        2.10915
+         O 17 -- Sn 9              0.34        2.10974
+         O 32 -- Sn 9              0.34        2.10999
+         O 55 -- Zr 2              0.41        2.11012
+         O 23 -- Sn 3              0.34        2.11017
+         O 41 -- Sn 1              0.34        2.11021
+         O 37 -- Sn 5              0.34        2.11037
+         O 30 -- Sn 6              0.34        2.11043
+         O 55 -- Zr 4              0.41        2.11047
+         O 47 -- Sn 3              0.34        2.11064
+         O 41 -- Sn 9              0.34        2.11080
+         O 51 -- Sn 3              0.34        2.11083
+         O 40 -- Zr 5              0.42        2.11124
+         O 56 -- Sn 5              0.34        2.11192
+         O 26 -- Sn 9              0.34        2.11205
+         O 15 -- Zr 7              0.42        2.11211
+         O 49 -- Sn 1              0.34        2.11217
+         O 34 -- Sn 7              0.34        2.11231
+         O 15 -- Zr 6              0.42        2.11274
+         O 48 -- Zr 1              0.43        2.11305
+         O 33 -- Zr 3              0.43        2.11364
+         O 45 -- Zr 1              0.43        2.11389
+         O 35 -- Zr 2              0.42        2.11389
+         O 27 -- Zr 7              0.42        2.11394
+         O 27 -- Zr 5              0.42        2.11403
+         O 35 -- Zr 7              0.42        2.11422
+         O 21 -- Zr 4              0.42        2.11422
+         O 34 -- Sn 1              0.33        2.11422
+         O 21 -- Zr 6              0.42        2.11454
+         O 25 -- Sn 6              0.34        2.11463
+         O 25 -- Sn 4              0.33        2.11494
+         O 24 -- Sn 4              0.34        2.11515
+         O 39 -- Sn 1              0.34        2.11535
+         O 53 -- Zr 4              0.43        2.11545
+         O 49 -- Sn 2              0.33        2.11582
+         O 33 -- Zr 6              0.43        2.11601
+         O 38 -- Zr 5              0.43        2.11635
+         O 45 -- Zr 7              0.42        2.11641
+         O 39 -- Sn 4              0.33        2.11704
+         O 53 -- Zr 3              0.42        2.11753
+         O 38 -- Zr 2              0.43        2.11841
+         O 24 -- Sn 8              0.33        2.11863
+         O 50 -- Zr 1              0.44        2.11871
+         O 48 -- Zr 6              0.42        2.11958
+         O 13 -- Sn 6              0.34        2.12010
+         O 52 -- Zr 1              0.43        2.12057
+         O 13 -- Sn 7              0.33        2.12098
+         O 44 -- Zr 3              0.44        2.12133
+         O 18 -- Zr 4              0.44        2.12166
+         O 14 -- Sn 2              0.33        2.12191
+         O 14 -- Sn 8              0.33        2.12343
+         O 43 -- Zr 2              0.44        2.12343
+         O 42 -- Zr 2              0.45        2.12361
+         O 9  -- Zr 5              0.44        2.12468
+         O 54 -- Zr 1              0.44        2.12496
+         O 20 -- Zr 5              0.44        2.12522
+         O 32 -- Zr 6              0.45        2.12546
+         O 11 -- Zr 6              0.45        2.12569
+         O 46 -- Zr 3              0.44        2.12622
+         O 12 -- Zr 4              0.45        2.12622
+         O 23 -- Zr 5              0.45        2.12647
+         O 31 -- Zr 7              0.45        2.12749
+         O 51 -- Zr 2              0.45        2.12790
+         O 56 -- Zr 1              0.45        2.12811
+         O 19 -- Zr 7              0.45        2.12821
+         O 26 -- Zr 4              0.45        2.13076
+         O 36 -- Zr 3              0.44        2.13191
+         O 4  -- La 4              0.18        2.35629
+         O 8  -- La 4              0.18        2.35657
+         O 4  -- La 9              0.18        2.35709
+         O 8  -- La 13             0.18        2.35824
+         O 6  -- La 9              0.17        2.35825
+         O 8  -- La 5              0.18        2.35840
+         O 8  -- La 10             0.19        2.35847
+         O 4  -- La 6              0.19        2.35849
+         O 6  -- La 1              0.18        2.35869
+         O 3  -- La 3              0.19        2.35871
+         O 6  -- La 12             0.18        2.35875
+         O 7  -- La 3              0.18        2.35881
+         O 2  -- La 12             0.17        2.35915
+         O 1  -- La 1              0.17        2.35923
+         O 1  -- La 10             0.16        2.35957
+         O 3  -- La 5              0.16        2.35961
+         O 5  -- La 6              0.16        2.35992
+         O 5  -- La 2              0.17        2.35999
+         O 2  -- La 7              0.18        2.36003
+         O 6  -- La 14             0.17        2.36005
+         O 5  -- La 8              0.17        2.36006
+         O 7  -- La 7              0.17        2.36009
+         O 4  -- La 16             0.18        2.36022
+         O 2  -- La 13             0.16        2.36029
+         O 2  -- La 2              0.18        2.36038
+         O 3  -- La 14             0.16        2.36040
+         O 3  -- La 8              0.17        2.36103
+         O 7  -- La 16             0.15        2.36159
+         O 1  -- La 11             0.17        2.36170
+         O 1  -- La 15             0.17        2.36202
+         O 5  -- La 15             0.17        2.36213
+         O 7  -- La 11             0.17        2.36226
+         O 35 -- La 16             0.12        2.66722
+         O 21 -- La 8              0.14        2.66737
+         O 33 -- La 13             0.13        2.66745
+         O 45 -- La 5              0.12        2.66937
+         O 29 -- La 15             0.23        2.66950
+         O 15 -- La 13             0.12        2.66953
+         O 17 -- La 15             0.23        2.66977
+         O 34 -- La 11             0.24        2.66978
+         O 55 -- La 1              0.13        2.66993
+         O 28 -- La 16             0.22        2.67022
+         O 16 -- La 14             0.22        2.67023
+         O 22 -- La 14             0.22        2.67038
+         O 10 -- La 13             0.23        2.67040
+         O 53 -- La 1              0.14        2.67050
+         O 48 -- La 4              0.11        2.67060
+         O 27 -- La 9              0.11        2.67061
+         O 24 -- La 13             0.23        2.67070
+         O 38 -- La 4              0.11        2.67082
+         O 40 -- La 9              0.12        2.67095
+         O 22 -- La 9              0.22        2.67102
+         O 42 -- La 16             0.18        2.67132
+         O 14 -- La 16             0.24        2.67134
+         O 53 -- La 9              0.12        2.67137
+         O 38 -- La 10             0.13        2.67137
+         O 48 -- La 6              0.13        2.67151
+         O 49 -- La 1              0.24        2.67176
+         O 50 -- La 5              0.17        2.67177
+         O 39 -- La 8              0.24        2.67181
+         O 27 -- La 12             0.14        2.67189
+         O 47 -- La 11             0.23        2.67191
+         O 50 -- La 4              0.17        2.67194
+         O 52 -- La 2              0.18        2.67196
+         O 9  -- La 11             0.19        2.67197
+         O 55 -- La 10             0.13        2.67205
+         O 15 -- La 12             0.14        2.67208
+         O 30 -- La 16             0.23        2.67210
+         O 41 -- La 2              0.23        2.67237
+         O 54 -- La 7              0.18        2.67268
+         O 16 -- La 5              0.22        2.67269
+         O 30 -- La 11             0.24        2.67281
+         O 10 -- La 7              0.23        2.67319
+         O 40 -- La 4              0.11        2.67321
+         O 41 -- La 12             0.23        2.67337
+         O 49 -- La 12             0.23        2.67367
+         O 17 -- La 10             0.23        2.67374
+         O 29 -- La 6              0.23        2.67375
+         O 43 -- La 14             0.17        2.67375
+         O 25 -- La 15             0.25        2.67379
+         O 46 -- La 15             0.19        2.67379
+         O 28 -- La 7              0.22        2.67398
+         O 37 -- La 8              0.24        2.67424
+         O 12 -- La 9              0.17        2.67427
+         O 32 -- La 14             0.18        2.67433
+         O 26 -- La 5              0.18        2.67453
+         O 47 -- La 1              0.24        2.67455
+         O 18 -- La 8              0.19        2.67486
+         O 20 -- La 7              0.19        2.67490
+         O 52 -- La 6              0.18        2.67495
+         O 37 -- La 2              0.24        2.67501
+         O 33 -- La 4              0.11        2.67506
+         O 24 -- La 10             0.24        2.67516
+         O 21 -- La 6              0.13        2.67517
+         O 44 -- La 2              0.19        2.67519
+         O 45 -- La 3              0.14        2.67536
+         O 44 -- La 13             0.17        2.67549
+         O 18 -- La 5              0.17        2.67554
+         O 13 -- La 11             0.25        2.67594
+         O 25 -- La 8              0.24        2.67604
+         O 35 -- La 3              0.14        2.67638
+         O 42 -- La 4              0.17        2.67645
+         O 51 -- La 14             0.18        2.67653
+         O 19 -- La 16             0.18        2.67657
+         O 39 -- La 3              0.25        2.67666
+         O 11 -- La 14             0.18        2.67673
+         O 13 -- La 15             0.25        2.67673
+         O 34 -- La 3              0.24        2.67711
+         O 12 -- La 6              0.18        2.67727
+         O 31 -- La 13             0.18        2.67753
+         O 36 -- La 15             0.19        2.67758
+         O 14 -- La 6              0.24        2.67766
+         O 19 -- La 9              0.18        2.67814
+         O 23 -- La 11             0.19        2.67822
+         O 54 -- La 3              0.19        2.67892
+         O 56 -- La 7              0.19        2.67931
+         O 46 -- La 1              0.18        2.67973
+         O 20 -- La 12             0.18        2.67974
+         O 31 -- La 5              0.18        2.67978
+         O 26 -- La 10             0.18        2.67980
+         O 56 -- La 2              0.19        2.67991
+         O 9  -- La 10             0.18        2.68000
+         O 36 -- La 2              0.19        2.68000
+         O 11 -- La 8              0.19        2.68034
+         O 32 -- La 12             0.18        2.68072
+         O 23 -- La 7              0.19        2.68074
+         O 51 -- La 1              0.19        2.68083
+         O 43 -- La 3              0.19        2.68126
+         O 42 -- O 50             -0.06        2.79302
+         O 12 -- O 22             -0.06        2.79319
+         O 18 -- O 50             -0.06        2.79414
+         O 22 -- O 43             -0.06        2.79487
+         O 16 -- O 26             -0.06        2.79585
+         O 44 -- O 52             -0.06        2.79594
+         O 10 -- O 24             -0.05        2.79598
+         O 19 -- O 22             -0.06        2.79603
+         O 10 -- O 54             -0.06        2.79623
+         O 16 -- O 51             -0.06        2.79660
+         O 16 -- O 32             -0.06        2.79668
+         O 16 -- O 31             -0.06        2.79685
+         O 47 -- O 49             -0.05        2.79695
+         O 41 -- O 49             -0.05        2.79709
+         O 11 -- O 22             -0.06        2.79714
+         O 10 -- O 31             -0.06        2.79757
+         O 37 -- O 41             -0.05        2.79772
+         O 20 -- O 28             -0.06        2.79774
+         O 12 -- O 29             -0.06        2.79793
+         O 30 -- O 42             -0.06        2.79812
+         O 37 -- O 39             -0.05        2.79823
+         O 29 -- O 46             -0.06        2.79841
+         O 19 -- O 28             -0.06        2.79841
+         O 34 -- O 47             -0.05        2.79891
+         O 17 -- O 24             -0.05        2.79917
+         O 14 -- O 28             -0.05        2.79937
+         O 17 -- O 25             -0.05        2.80109
+         O 9  -- O 30             -0.06        2.80119
+         O 24 -- O 44             -0.06        2.80229
+         O 46 -- O 49             -0.06        2.80323
+         O 20 -- O 49             -0.06        2.80435
+         O 28 -- O 56             -0.06        2.80478
+         O 37 -- O 56             -0.06        2.80516
+         O 39 -- O 54             -0.06        2.80519
+         O 10 -- O 23             -0.06        2.80529
+         O 23 -- O 47             -0.06        2.80602
+         O 36 -- O 41             -0.06        2.80605
+         O 47 -- O 51             -0.06        2.80616
+         O 9  -- O 24             -0.06        2.80641
+         O 17 -- O 26             -0.06        2.80643
+         O 32 -- O 41             -0.06        2.80646
+         O 14 -- O 52             -0.06        2.80661
+         O 17 -- O 36             -0.06        2.80663
+         O 18 -- O 25             -0.06        2.80691
+         O 11 -- O 37             -0.06        2.80711
+         O 34 -- O 43             -0.06        2.80717
+         O 25 -- O 39             -0.05        2.80757
+         O 34 -- O 39             -0.05        2.80778
+         O 14 -- O 30             -0.05        2.80887
+         O 38 -- O 40             -0.03        2.80890
+         O 14 -- O 29             -0.05        2.80916
+         O 27 -- O 40             -0.03        2.80939
+         O 13 -- O 29             -0.05        2.81022
+         O 33 -- O 40             -0.03        2.81057
+         O 13 -- O 34             -0.05        2.81061
+         O 40 -- O 53             -0.03        2.81081
+         O 15 -- O 33             -0.03        2.81262
+         O 48 -- O 50             -0.03        2.81300
+         O 13 -- O 30             -0.05        2.81327
+         O 38 -- O 55             -0.03        2.81387
+         O 13 -- O 25             -0.05        2.81396
+         O 53 -- O 55             -0.03        2.81458
+         O 45 -- O 50             -0.03        2.81495
+         O 15 -- O 27             -0.03        2.81597
+         O 33 -- O 48             -0.03        2.81600
+         O 35 -- O 42             -0.03        2.81945
+         O 33 -- O 44             -0.03        2.81976
+         O 48 -- O 52             -0.03        2.81992
+         O 21 -- O 48             -0.03        2.82001
+         O 38 -- O 42             -0.03        2.82279
+         O 35 -- O 45             -0.03        2.82332
+         O 18 -- O 21             -0.03        2.82372
+         O 12 -- O 53             -0.03        2.82420
+         O 15 -- O 31             -0.03        2.82660
+         O 19 -- O 27             -0.03        2.82714
+         O 19 -- O 35             -0.03        2.82730
+         O 31 -- O 45             -0.03        2.82734
+         O 20 -- O 27             -0.03        2.82817
+         O 9  -- O 38             -0.03        2.82859
+         O 12 -- O 21             -0.03        2.82868
+         O 51 -- O 55             -0.03        2.82879
+         O 26 -- O 55             -0.03        2.82916
+         O 46 -- O 53             -0.03        2.82919
+         O 45 -- O 54             -0.03        2.82955
+         O 15 -- O 32             -0.03        2.83082
+         O 11 -- O 21             -0.03        2.83141
+         O 35 -- O 43             -0.03        2.83214
+         O 18 -- O 26             -0.03        2.83475
+         O 43 -- O 51             -0.03        2.83637
+         O 52 -- O 56             -0.03        2.83665
+         O 54 -- O 56             -0.03        2.83749
+         O 11 -- O 32             -0.03        2.83879
+         O 36 -- O 44             -0.03        2.84002
+         O 20 -- O 23             -0.03        2.84022
+         O 9  -- O 23             -0.03        2.84051
+         O 36 -- O 46             -0.03        2.84117
+============================================================
+ 
+Initialisation time =     25.16 s
+Calculation time    =   2736.15 s
+Finalisation time   =      0.13 s
+Total time          =   2761.44 s
+Peak Memory Use     = 3659372 kB
+  
+Overall parallel efficiency rating: Good (73%)                                  
+  
+Data was distributed by:-
+G-vector (64-way); efficiency rating: Good (75%)                                
+k-point (14-way); efficiency rating: Excellent (96%)                            

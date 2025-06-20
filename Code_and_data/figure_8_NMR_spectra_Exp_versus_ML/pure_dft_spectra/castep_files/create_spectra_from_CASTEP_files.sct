@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for i in $( ls -d Zr* )  ; do
+cd $i
+python3.7 ../get_struct_Ene_NMR_from_CASTEP_files.py *.magres > $i.csv
+../peaks2spec
+cd ..
+done
+
+chmod +x cp_ENERGIES_SPECTRA_DATA.sct
+./cp_ENERGIES_SPECTRA_DATA.sct
